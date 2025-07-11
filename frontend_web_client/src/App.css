@@ -29,6 +29,110 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Notes App custom layout styles */
+.notes-root {
+  width: 100vw;
+  min-height: 100vh;
+  background: #fff;
+  color: #262938;
+}
+
+/* Layout containers */
+.notes-layout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+}
+
+/* Sidebar */
+.notes-sidebar {
+  box-shadow: none;
+  border-right: 1px solid #e9ecef;
+  background: #f8f9fa;
+  min-width: 240px;
+  max-width: 360px;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* Header */
+.notes-header {
+  box-shadow: 0 1px 0 #ededed;
+}
+
+/* Sidebar note list */
+.note-item {
+  outline: none;
+}
+.note-item:hover,
+.note-item:focus-visible {
+  background: #f2f7fd;
+}
+.note-item.selected {
+  background: #fff;
+  font-weight: 600;
+}
+
+.note-delete-btn {
+  opacity: 0.5;
+  transition: opacity 0.14s;
+}
+.note-item:hover .note-delete-btn,
+.note-item.selected .note-delete-btn {
+  opacity: 1;
+}
+.note-delete-btn:hover {
+  color: #ff9800;
+  opacity: 1;
+}
+
+.notes-list::-webkit-scrollbar,
+.notes-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Main area */
+.notes-main {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-editor input[name="title"] {
+  font-family: inherit;
+}
+
+.note-editor textarea {
+  font-family: inherit;
+}
+
+/* Responsive Layout */
+@media (max-width: 670px) {
+  .notes-layout {
+    flex-direction: column;
+  }
+  .notes-sidebar {
+    width: 100%;
+    min-width: unset;
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+  }
+}
+
+/* Selection color */
+::selection {
+  background: #ff980025;
+}
+
+/* Hide scrollbar for sidebar list */
+.notes-sidebar, .notes-list {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
